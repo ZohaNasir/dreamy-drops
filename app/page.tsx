@@ -1,20 +1,54 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end start"],
-  });
+  const bgRef = useRef<HTMLDivElement>(null);
+  const textRef = useRef<HTMLDivElement>(null);
 
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const ctx = gsap.context(() => {
+      // Hero Parallax Effect using GSAP
+      if (bgRef.current) {
+        gsap.to(bgRef.current, {
+          yPercent: 50,
+          ease: "none",
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top top",
+            end: "bottom top",
+            scrub: true,
+          },
+        });
+      }
+
+      // Hero Text Fade Out using GSAP
+      if (textRef.current) {
+        gsap.to(textRef.current, {
+          opacity: 0,
+          y: -50,
+          ease: "none",
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top top",
+            end: "bottom top",
+            scrub: true,
+          },
+        });
+      }
+    });
+
+    return () => ctx.revert();
+  }, []);
 
   return (
     <div className="flex flex-col w-full overflow-hidden">
@@ -23,9 +57,9 @@ export default function Home() {
         ref={containerRef} 
         className="relative h-screen w-full flex items-center justify-center bg-[#fcfcfc] overflow-hidden"
       >
-        <motion.div 
-          style={{ y, opacity }}
-          className="absolute inset-0 z-0"
+        <div 
+          ref={bgRef}
+          className="absolute inset-0 z-0 h-[120%]"
         >
           <Image
             src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=2000"
@@ -35,9 +69,9 @@ export default function Home() {
             priority
           />
           <div className="absolute inset-0 bg-gradient-to-b from-white/30 to-[#fcfcfc]" />
-        </motion.div>
+        </div>
 
-        <div className="relative z-10 text-center px-4 flex flex-col items-center max-w-4xl mx-auto mt-20">
+        <div ref={textRef} className="relative z-10 text-center px-4 flex flex-col items-center max-w-4xl mx-auto mt-20">
           <motion.h1 
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -84,7 +118,6 @@ export default function Home() {
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16">
-            {/* Placeholder for Featured Products */}
             {[
               {
                 id: 1,
