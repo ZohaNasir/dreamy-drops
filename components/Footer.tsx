@@ -1,6 +1,4 @@
 import Link from "next/link";
-import { Instagram } from "lucide-react";
-
 export default function Footer() {
   return (
     <footer className="bg-[#f8f8f8] pt-16 pb-8 border-t">
@@ -14,9 +12,8 @@ export default function Footer() {
               Handcrafted, minimal, and elegant jewelry for everyday wear. Ethically sourced and carefully curated to elevate your style.
             </p>
             <div className="flex space-x-4">
-              <a href="https://instagram.com/dreamy_drops8" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-black transition-colors">
-                <span className="sr-only">Instagram</span>
-                <Instagram className="h-5 w-5" />
+              <a href="https://instagram.com/dreamy_drops8" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-black transition-colors text-sm font-medium">
+                Instagram
               </a>
             </div>
           </div>
