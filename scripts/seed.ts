@@ -13,7 +13,7 @@ const mockProducts = [
     title: "Dreamy Drops - Collection Piece 1",
     description: "Premium handcrafted piece from our exclusive collection. Made with elegant detailing.",
     price: 1850.00,
-    category: "Bags",
+    category: "Handbags",
     tags: ["luxury", "handbag", "exclusive"],
     inStock: true,
   },
@@ -21,7 +21,7 @@ const mockProducts = [
     title: "Dreamy Drops - Collection Piece 2",
     description: "Classic design with modern aesthetic. Comfortable and stylish.",
     price: 890.00,
-    category: "Shoes",
+    category: "Sneakers",
     tags: ["luxury", "sneakers", "classic"],
     inStock: true,
   },
@@ -29,7 +29,7 @@ const mockProducts = [
     title: "Dreamy Drops - Collection Piece 3",
     description: "Timeless elegance with signature hardware.",
     price: 2100.00,
-    category: "Bags",
+    category: "Handbags",
     tags: ["luxury", "leather", "classic"],
     inStock: true,
   },
@@ -37,7 +37,7 @@ const mockProducts = [
     title: "Dreamy Drops - Collection Piece 4",
     description: "Perfect piece for the perfect summer look.",
     price: 650.00,
-    category: "Shoes",
+    category: "Sandals",
     tags: ["luxury", "sandals", "summer"],
     inStock: true,
   },
@@ -45,7 +45,7 @@ const mockProducts = [
     title: "Dreamy Drops - Collection Piece 5",
     description: "Signature classic style with iconic stripes.",
     price: 850.00,
-    category: "Shoes",
+    category: "Sneakers",
     tags: ["luxury", "sneakers", "classic"],
     inStock: true,
   },
@@ -53,7 +53,7 @@ const mockProducts = [
     title: "Dreamy Drops - Collection Piece 6",
     description: "Elegant and luxurious minimal design.",
     price: 720.00,
-    category: "Shoes",
+    category: "Sandals",
     tags: ["luxury", "sandals", "minimalist"],
     inStock: true,
   },
@@ -61,7 +61,7 @@ const mockProducts = [
     title: "Dreamy Drops - Collection Piece 7",
     description: "Perfect neutral tone for any outfit.",
     price: 720.00,
-    category: "Shoes",
+    category: "Sandals",
     tags: ["luxury", "sandals", "neutral"],
     inStock: true,
   },
@@ -69,7 +69,7 @@ const mockProducts = [
     title: "Dreamy Drops - Collection Piece 8",
     description: "Cozy details with iconic monograms.",
     price: 1150.00,
-    category: "Shoes",
+    category: "Sandals",
     tags: ["luxury", "sandals", "cozy"],
     inStock: true,
   },
@@ -77,7 +77,7 @@ const mockProducts = [
     title: "Dreamy Drops - Collection Piece 9",
     description: "The ultimate luxury icon with elegant hardware.",
     price: 8500.00,
-    category: "Bags",
+    category: "Handbags",
     tags: ["luxury", "bag", "iconic"],
     inStock: true,
   },
@@ -85,7 +85,7 @@ const mockProducts = [
     title: "Dreamy Drops - Collection Piece 10",
     description: "Signature canvas with aged hardware.",
     price: 3800.00,
-    category: "Bags",
+    category: "Totes",
     tags: ["luxury", "bag", "canvas"],
     inStock: true,
   },
@@ -93,7 +93,7 @@ const mockProducts = [
     title: "Dreamy Drops - Collection Piece 11",
     description: "Elegant leather bag featuring the iconic monogram.",
     price: 2400.00,
-    category: "Bags",
+    category: "Handbags",
     tags: ["luxury", "bag", "leather"],
     inStock: true,
   },
@@ -101,7 +101,7 @@ const mockProducts = [
     title: "Dreamy Drops - Collection Piece 12",
     description: "Classic design with signature enamel logo.",
     price: 1200.00,
-    category: "Bags",
+    category: "Handbags",
     tags: ["luxury", "bag", "classic"],
     inStock: true,
   },
@@ -109,7 +109,7 @@ const mockProducts = [
     title: "Dreamy Drops - Collection Piece 13",
     description: "Iconic woven leather mini hobo bag.",
     price: 2650.00,
-    category: "Bags",
+    category: "Handbags",
     tags: ["luxury", "bag", "leather"],
     inStock: true,
   },
@@ -117,7 +117,7 @@ const mockProducts = [
     title: "Dreamy Drops - Collection Piece 14",
     description: "Elegant pumps adorned with signature studs.",
     price: 1100.00,
-    category: "Shoes",
+    category: "Pumps",
     tags: ["luxury", "shoes", "pumps"],
     inStock: true,
   },
@@ -125,7 +125,7 @@ const mockProducts = [
     title: "Dreamy Drops - Collection Piece 15",
     description: "Classic stiletto pumps featuring the iconic red sole.",
     price: 795.00,
-    category: "Shoes",
+    category: "Pumps",
     tags: ["luxury", "shoes", "pumps"],
     inStock: true,
   },
@@ -133,7 +133,7 @@ const mockProducts = [
     title: "Dreamy Drops - Collection Piece 16",
     description: "Chunky oversized sneakers in unique colorways.",
     price: 1150.00,
-    category: "Shoes",
+    category: "Sneakers",
     tags: ["luxury", "sneakers", "chunky"],
     inStock: true,
   },
@@ -141,7 +141,7 @@ const mockProducts = [
     title: "Dreamy Drops - Collection Piece 17",
     description: "Leather sneakers with bold suede heel counter.",
     price: 590.00,
-    category: "Shoes",
+    category: "Sneakers",
     tags: ["luxury", "sneakers", "leather"],
     inStock: true,
   },
@@ -149,7 +149,7 @@ const mockProducts = [
     title: "Dreamy Drops - Collection Piece 18",
     description: "The timeless symbol of luxury, crafted in gold.",
     price: 7350.00,
-    category: "Jewelry",
+    category: "Bracelets",
     tags: ["luxury", "bracelet", "gold"],
     inStock: true,
   },
@@ -157,7 +157,7 @@ const mockProducts = [
     title: "Dreamy Drops - Collection Piece 19",
     description: "Delicate and elegant curved piece.",
     price: 1100.00,
-    category: "Jewelry",
+    category: "Necklaces",
     tags: ["luxury", "necklace", "elegant"],
     inStock: true,
   },
@@ -165,7 +165,7 @@ const mockProducts = [
     title: "Dreamy Drops - Collection Piece 20",
     description: "Vintage pendant featuring a beautiful motif.",
     price: 2950.00,
-    category: "Jewelry",
+    category: "Necklaces",
     tags: ["luxury", "necklace", "vintage"],
     inStock: true,
   },
@@ -173,7 +173,7 @@ const mockProducts = [
     title: "Dreamy Drops - Collection Piece 21",
     description: "Captivating ring with pavé details.",
     price: 5800.00,
-    category: "Jewelry",
+    category: "Rings",
     tags: ["luxury", "ring", "diamonds"],
     inStock: true,
   },
@@ -181,7 +181,7 @@ const mockProducts = [
     title: "Dreamy Drops - Collection Piece 22",
     description: "Classic timepiece featuring a fluted bezel.",
     price: 12500.00,
-    category: "Jewelry",
+    category: "Watches",
     tags: ["luxury", "watch", "classic"],
     inStock: true,
   },
@@ -189,7 +189,7 @@ const mockProducts = [
     title: "Dreamy Drops - Collection Piece 23",
     description: "Iconic enamel bracelet with gold-plated closure.",
     price: 700.00,
-    category: "Jewelry",
+    category: "Bracelets",
     tags: ["luxury", "bracelet", "enamel"],
     inStock: true,
   },
@@ -197,7 +197,7 @@ const mockProducts = [
     title: "Dreamy Drops - Collection Piece 24",
     description: "Softly structured shoulder bag with an oversized closure.",
     price: 2350.00,
-    category: "Bags",
+    category: "Handbags",
     tags: ["luxury", "bag", "leather"],
     inStock: true,
   },
@@ -205,7 +205,7 @@ const mockProducts = [
     title: "Dreamy Drops - Collection Piece 25",
     description: "Spacious and elegant tote in classic canvas.",
     price: 2030.00,
-    category: "Bags",
+    category: "Totes",
     tags: ["luxury", "bag", "tote"],
     inStock: true,
   },
@@ -213,7 +213,7 @@ const mockProducts = [
     title: "Dreamy Drops - Collection Piece 26",
     description: "Striking patent leather piece with logo heel.",
     price: 1250.00,
-    category: "Shoes",
+    category: "Pumps",
     tags: ["luxury", "shoes", "black"],
     inStock: true,
   },
@@ -221,8 +221,32 @@ const mockProducts = [
     title: "Dreamy Drops - Collection Piece 27",
     description: "Signature twisted cable bracelet with dome accents.",
     price: 495.00,
-    category: "Jewelry",
+    category: "Bracelets",
     tags: ["luxury", "bracelet", "silver"],
+    inStock: true,
+  },
+  {
+    title: "Model Showcase - Diamond Necklace",
+    description: "Stunning model wearing our exclusive diamond necklace collection.",
+    price: 8500.00,
+    category: "Necklaces",
+    tags: ["luxury", "model", "diamonds"],
+    inStock: true,
+  },
+  {
+    title: "Model Showcase - Designer Handbag",
+    description: "Street style model featuring our classic designer handbag.",
+    price: 2450.00,
+    category: "Handbags",
+    tags: ["luxury", "model", "handbag"],
+    inStock: true,
+  },
+  {
+    title: "Model Showcase - Stiletto Heels",
+    description: "Editorial model wearing our signature stiletto heels.",
+    price: 1250.00,
+    category: "Pumps",
+    tags: ["luxury", "model", "pumps"],
     inStock: true,
   }
 ];
@@ -242,15 +266,28 @@ async function seedDatabase() {
     const productsDir = path.join(process.cwd(), 'public', 'Products');
     let imageFiles: string[] = [];
     if (fs.existsSync(productsDir)) {
-      imageFiles = fs.readdirSync(productsDir).filter(file => !file.endsWith('.csv') && !file.startsWith('.'));
+      // Sort alphabetically so it's somewhat consistent
+      imageFiles = fs.readdirSync(productsDir)
+        .filter(file => !file.endsWith('.csv') && !file.startsWith('.') && !file.includes('model_'))
+        .sort();
     }
+    
+    // Grab the 3 model images we generated specifically
+    const modelImages = [
+      "model_jewelry.png",
+      "model_bag.png",
+      "model_shoes.png"
+    ];
+
+    // Combine them, putting models at the end to match the mockProducts array
+    const allImages = [...imageFiles, ...modelImages];
 
     // Map images to products
     const finalProducts = mockProducts.map((product, index) => {
-      let imagePath = "https://images.unsplash.com/photo-1599643478524-fb66f7ca1a1e?q=80&w=800";
-      if (imageFiles.length > 0) {
-        // Round robin image assignment
-        imagePath = `/Products/${imageFiles[index % imageFiles.length]}`;
+      let imagePath = "";
+      if (allImages.length > 0) {
+        // Round robin image assignment if we run out, but we shouldn't
+        imagePath = `/Products/${allImages[index % allImages.length]}`;
       }
       return {
         ...product,
