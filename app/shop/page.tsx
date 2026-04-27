@@ -7,12 +7,13 @@ export const dynamic = 'force-dynamic';
 export default async function ShopPage({
   searchParams,
 }: {
-  searchParams: { category?: string; search?: string };
+  searchParams: Promise<{ category?: string; search?: string }>;
 }) {
   await connectDB();
   
-  const category = searchParams.category;
-  const search = searchParams.search;
+  const resolvedParams = await searchParams;
+  const category = resolvedParams.category;
+  const search = resolvedParams.search;
 
   let query: any = {};
   if (category) query.category = category;

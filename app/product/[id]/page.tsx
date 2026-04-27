@@ -3,11 +3,12 @@ import connectDB from "@/lib/db";
 import Product from "@/models/Product";
 import ProductClient from "./ProductClient";
 
-export default async function ProductPage({ params }: { params: { id: string } }) {
+export default async function ProductPage({ params }: { params: Promise<{ id: string }> }) {
   await connectDB();
   
   try {
-    const productRaw = await Product.findById(params.id);
+    const resolvedParams = await params;
+    const productRaw = await Product.findById(resolvedParams.id);
     if (!productRaw) return notFound();
 
     const product = {
