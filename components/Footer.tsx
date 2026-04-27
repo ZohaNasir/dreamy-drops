@@ -60,7 +60,7 @@ export default function Footer() {
         
         <div className="border-t border-gray-200 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-gray-500">
-            &copy; {new Date().getFullYear()} Dreamy Drops. All rights reserved.
+            &copy; {new Date().getFullYear()} Dreamy Drops by Zoha Nasir. All rights reserved.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Link href="/privacy" className="text-xs text-gray-500 hover:text-black transition-colors">Privacy Policy</Link>

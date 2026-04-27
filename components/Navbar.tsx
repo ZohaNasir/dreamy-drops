@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { ShoppingBag, Search, User, Menu, X, Heart } from "lucide-react";
 import { useCartStore } from "@/store/cartStore";
@@ -59,8 +60,13 @@ export default function Navbar() {
 
             {/* Logo */}
             <div className="flex-1 flex justify-center lg:justify-start">
-              <Link href="/" className="text-2xl font-bold tracking-widest uppercase text-gray-900">
-                Dreamy Drops
+              <Link href="/" className="flex items-center gap-3">
+                <div className="relative w-10 h-10 overflow-hidden rounded-full border border-gray-100 shadow-sm">
+                  <Image src="/logo.png" alt="Dreamy Drops Logo" fill className="object-cover" />
+                </div>
+                <span className="text-2xl font-bold tracking-widest uppercase text-gray-900 hidden sm:block">
+                  Dreamy Drops
+                </span>
               </Link>
             </div>
 
