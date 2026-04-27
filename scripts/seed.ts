@@ -3,252 +3,226 @@ import bcrypt from "bcryptjs";
 import User from "../models/User";
 import Product from "../models/Product";
 import dotenv from "dotenv";
+import fs from "fs";
+import path from "path";
 
 dotenv.config({ path: ".env" });
 
 const mockProducts = [
   {
-    title: "Gucci Handbag - Green Floral Design",
-    description: "Elegant green floral design handbag. Premium quality luxury piece.",
+    title: "Dreamy Drops - Collection Piece 1",
+    description: "Premium handcrafted piece from our exclusive collection. Made with elegant detailing.",
     price: 1850.00,
-    images: ["https://images.unsplash.com/photo-1584916201218-f4242ceb4809?q=80&w=800"],
     category: "Bags",
-    tags: ["gucci", "handbag", "green"],
+    tags: ["luxury", "handbag", "exclusive"],
     inStock: true,
-    instagramUrl: "https://www.instagram.com/p/DXnlsLPggQ-/"
   },
   {
-    title: "Fendi Sneakers - White and Pink",
-    description: "Classic white and pink sneakers. Comfortable and stylish.",
+    title: "Dreamy Drops - Collection Piece 2",
+    description: "Classic design with modern aesthetic. Comfortable and stylish.",
     price: 890.00,
-    images: ["https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=800"],
     category: "Shoes",
-    tags: ["fendi", "sneakers", "pink"],
+    tags: ["luxury", "sneakers", "classic"],
     inStock: true,
   },
   {
-    title: "Gucci Handbag - Green Leather",
-    description: "Timeless green leather handbag with signature hardware.",
+    title: "Dreamy Drops - Collection Piece 3",
+    description: "Timeless elegance with signature hardware.",
     price: 2100.00,
-    images: ["https://images.unsplash.com/photo-1590874103328-eac38a683ce7?q=80&w=800"],
     category: "Bags",
-    tags: ["gucci", "leather", "green"],
+    tags: ["luxury", "leather", "classic"],
     inStock: true,
   },
   {
-    title: "Gucci Sandals - Light Blue Logo",
-    description: "Light blue logo sandals for the perfect summer look.",
+    title: "Dreamy Drops - Collection Piece 4",
+    description: "Perfect piece for the perfect summer look.",
     price: 650.00,
-    images: ["https://images.unsplash.com/photo-1603808033192-082d6919d3e1?q=80&w=800"],
     category: "Shoes",
-    tags: ["gucci", "sandals", "blue"],
+    tags: ["luxury", "sandals", "summer"],
     inStock: true,
   },
   {
-    title: "Gucci Sneakers - Classic White/Red/Green",
-    description: "Signature classic sneakers with red and green stripes.",
+    title: "Dreamy Drops - Collection Piece 5",
+    description: "Signature classic style with iconic stripes.",
     price: 850.00,
-    images: ["https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=800"],
     category: "Shoes",
-    tags: ["gucci", "sneakers", "classic"],
+    tags: ["luxury", "sneakers", "classic"],
     inStock: true,
   },
   {
-    title: "Hermes Sandals - Black Leather",
-    description: "Elegant black leather sandals. Minimalist and luxurious.",
+    title: "Dreamy Drops - Collection Piece 6",
+    description: "Elegant and luxurious minimal design.",
     price: 720.00,
-    images: ["https://images.unsplash.com/photo-1591195853828-11db59a44f6b?q=80&w=800"],
     category: "Shoes",
-    tags: ["hermes", "sandals", "black"],
+    tags: ["luxury", "sandals", "minimalist"],
     inStock: true,
   },
   {
-    title: "Hermes Sandals - Beige Leather",
-    description: "Beige leather sandals. Perfect neutral tone for any outfit.",
+    title: "Dreamy Drops - Collection Piece 7",
+    description: "Perfect neutral tone for any outfit.",
     price: 720.00,
-    images: ["https://images.unsplash.com/photo-1562183241-b937e95585b6?q=80&w=800"],
     category: "Shoes",
-    tags: ["hermes", "sandals", "beige"],
+    tags: ["luxury", "sandals", "neutral"],
     inStock: true,
   },
   {
-    title: "Louis Vuitton Sandals - Beige Shearling",
-    description: "Cozy beige shearling sandals with monogram details.",
+    title: "Dreamy Drops - Collection Piece 8",
+    description: "Cozy details with iconic monograms.",
     price: 1150.00,
-    images: ["https://images.unsplash.com/photo-1604081077366-2dbb8cc9862f?q=80&w=800"],
     category: "Shoes",
-    tags: ["louis vuitton", "sandals", "shearling"],
+    tags: ["luxury", "sandals", "cozy"],
     inStock: true,
   },
   {
-    title: "Chanel Classic Flap Bag - Black",
-    description: "The ultimate luxury icon. Quilted black leather with gold-tone hardware.",
+    title: "Dreamy Drops - Collection Piece 9",
+    description: "The ultimate luxury icon with elegant hardware.",
     price: 8500.00,
-    images: ["https://images.unsplash.com/photo-1591561954557-26941169b49e?q=80&w=800"],
     category: "Bags",
-    tags: ["chanel", "bag", "black", "leather"],
+    tags: ["luxury", "bag", "iconic"],
     inStock: true,
   },
   {
-    title: "Dior Saddle Bag - Oblique",
-    description: "Signature Dior oblique canvas saddle bag with aged gold hardware.",
+    title: "Dreamy Drops - Collection Piece 10",
+    description: "Signature canvas with aged hardware.",
     price: 3800.00,
-    images: ["https://images.unsplash.com/photo-1590874103328-eac38a683ce7?q=80&w=800"],
     category: "Bags",
-    tags: ["dior", "bag", "oblique"],
+    tags: ["luxury", "bag", "canvas"],
     inStock: true,
   },
   {
-    title: "YSL Kate Shoulder Bag - Nude",
-    description: "Elegant nude leather shoulder bag featuring the iconic YSL monogram.",
+    title: "Dreamy Drops - Collection Piece 11",
+    description: "Elegant leather bag featuring the iconic monogram.",
     price: 2400.00,
-    images: ["https://images.unsplash.com/photo-1584916201218-f4242ceb4809?q=80&w=800"],
     category: "Bags",
-    tags: ["ysl", "bag", "nude", "leather"],
+    tags: ["luxury", "bag", "leather"],
     inStock: true,
   },
   {
-    title: "Prada Nylon Re-Edition 2000",
-    description: "Classic black nylon mini bag with enamel triangle logo.",
+    title: "Dreamy Drops - Collection Piece 12",
+    description: "Classic design with signature enamel logo.",
     price: 1200.00,
-    images: ["https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=800"],
     category: "Bags",
-    tags: ["prada", "bag", "nylon", "black"],
+    tags: ["luxury", "bag", "classic"],
     inStock: true,
   },
   {
-    title: "Bottega Veneta Jodie Mini",
-    description: "Iconic intrecciato leather mini hobo bag in vibrant green.",
+    title: "Dreamy Drops - Collection Piece 13",
+    description: "Iconic woven leather mini hobo bag.",
     price: 2650.00,
-    images: ["https://images.unsplash.com/photo-1591561954557-26941169b49e?q=80&w=800"],
     category: "Bags",
-    tags: ["bottega", "bag", "leather", "green"],
+    tags: ["luxury", "bag", "leather"],
     inStock: true,
   },
   {
-    title: "Valentino Garavani Rockstud Pumps",
-    description: "Nude patent leather pumps adorned with signature rockstuds.",
+    title: "Dreamy Drops - Collection Piece 14",
+    description: "Elegant pumps adorned with signature studs.",
     price: 1100.00,
-    images: ["https://images.unsplash.com/photo-1543163521-1bf539c55dd2?q=80&w=800"],
     category: "Shoes",
-    tags: ["valentino", "shoes", "pumps", "studs"],
+    tags: ["luxury", "shoes", "pumps"],
     inStock: true,
   },
   {
-    title: "Christian Louboutin Pigalle 100",
-    description: "Classic black patent stiletto pumps featuring the iconic red sole.",
+    title: "Dreamy Drops - Collection Piece 15",
+    description: "Classic stiletto pumps featuring the iconic red sole.",
     price: 795.00,
-    images: ["https://images.unsplash.com/photo-1550246140-5119ae4790b8?q=80&w=800"],
     category: "Shoes",
-    tags: ["louboutin", "shoes", "pumps", "black"],
+    tags: ["luxury", "shoes", "pumps"],
     inStock: true,
   },
   {
-    title: "Balenciaga Triple S Sneakers",
-    description: "Chunky oversized sneakers in a white and grey colorway.",
+    title: "Dreamy Drops - Collection Piece 16",
+    description: "Chunky oversized sneakers in unique colorways.",
     price: 1150.00,
-    images: ["https://images.unsplash.com/photo-1552346154-21d32810baa3?q=80&w=800"],
     category: "Shoes",
-    tags: ["balenciaga", "sneakers", "chunky", "white"],
+    tags: ["luxury", "sneakers", "chunky"],
     inStock: true,
   },
   {
-    title: "Alexander McQueen Oversized Sneakers",
-    description: "White leather sneakers with a black suede heel counter.",
+    title: "Dreamy Drops - Collection Piece 17",
+    description: "Leather sneakers with bold suede heel counter.",
     price: 590.00,
-    images: ["https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=800"],
     category: "Shoes",
-    tags: ["mcqueen", "sneakers", "leather", "white"],
+    tags: ["luxury", "sneakers", "leather"],
     inStock: true,
   },
   {
-    title: "Cartier Love Bracelet - Yellow Gold",
-    description: "The timeless symbol of love, crafted in 18k yellow gold.",
+    title: "Dreamy Drops - Collection Piece 18",
+    description: "The timeless symbol of luxury, crafted in gold.",
     price: 7350.00,
-    images: ["https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=800"],
     category: "Jewelry",
-    tags: ["cartier", "bracelet", "gold", "love"],
+    tags: ["luxury", "bracelet", "gold"],
     inStock: true,
   },
   {
-    title: "Tiffany T Smile Pendant",
-    description: "Delicate and elegant curved pendant in 18k rose gold.",
+    title: "Dreamy Drops - Collection Piece 19",
+    description: "Delicate and elegant curved piece.",
     price: 1100.00,
-    images: ["https://images.unsplash.com/photo-1599643478524-fb66f7ca1a1e?q=80&w=800"],
     category: "Jewelry",
-    tags: ["tiffany", "necklace", "gold", "pendant"],
+    tags: ["luxury", "necklace", "elegant"],
     inStock: true,
   },
   {
-    title: "Van Cleef Alhambra Necklace",
-    description: "Vintage Alhambra pendant featuring a mother-of-pearl motif.",
+    title: "Dreamy Drops - Collection Piece 20",
+    description: "Vintage pendant featuring a beautiful motif.",
     price: 2950.00,
-    images: ["https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=800"],
     category: "Jewelry",
-    tags: ["vca", "necklace", "pearl", "gold"],
+    tags: ["luxury", "necklace", "vintage"],
     inStock: true,
   },
   {
-    title: "Bvlgari Serpenti Ring",
-    description: "Captivating snake motif ring in white gold with pavé diamonds.",
+    title: "Dreamy Drops - Collection Piece 21",
+    description: "Captivating ring with pavé details.",
     price: 5800.00,
-    images: ["https://images.unsplash.com/photo-1605100804763-247f67b2548e?q=80&w=800"],
     category: "Jewelry",
-    tags: ["bvlgari", "ring", "diamonds", "gold"],
+    tags: ["luxury", "ring", "diamonds"],
     inStock: true,
   },
   {
-    title: "Rolex Datejust 36 - Two Tone",
-    description: "Classic timepiece featuring a fluted bezel and Jubilee bracelet.",
+    title: "Dreamy Drops - Collection Piece 22",
+    description: "Classic timepiece featuring a fluted bezel.",
     price: 12500.00,
-    images: ["https://images.unsplash.com/photo-1523170335258-f5ed11844a49?q=80&w=800"],
     category: "Jewelry",
-    tags: ["rolex", "watch", "gold", "steel"],
+    tags: ["luxury", "watch", "classic"],
     inStock: true,
   },
   {
-    title: "Hermes Clic Clac H Bracelet",
-    description: "Iconic enamel bracelet with gold-plated H closure.",
+    title: "Dreamy Drops - Collection Piece 23",
+    description: "Iconic enamel bracelet with gold-plated closure.",
     price: 700.00,
-    images: ["https://images.unsplash.com/photo-1618403088890-3d9ff6f4c8b1?q=80&w=800"],
     category: "Jewelry",
-    tags: ["hermes", "bracelet", "enamel", "gold"],
+    tags: ["luxury", "bracelet", "enamel"],
     inStock: true,
   },
   {
-    title: "Gucci GG Marmont Mini Bag",
-    description: "Softly structured chain shoulder bag with an oversized flap closure.",
+    title: "Dreamy Drops - Collection Piece 24",
+    description: "Softly structured shoulder bag with an oversized closure.",
     price: 2350.00,
-    images: ["https://images.unsplash.com/photo-1584916201218-f4242ceb4809?q=80&w=800"],
     category: "Bags",
-    tags: ["gucci", "bag", "leather", "black"],
+    tags: ["luxury", "bag", "leather"],
     inStock: true,
   },
   {
-    title: "Louis Vuitton Neverfull MM",
-    description: "Spacious and elegant tote in classic monogram canvas.",
+    title: "Dreamy Drops - Collection Piece 25",
+    description: "Spacious and elegant tote in classic canvas.",
     price: 2030.00,
-    images: ["https://images.unsplash.com/photo-1590874103328-eac38a683ce7?q=80&w=800"],
     category: "Bags",
-    tags: ["louis vuitton", "bag", "tote", "monogram"],
+    tags: ["luxury", "bag", "tote"],
     inStock: true,
   },
   {
-    title: "Saint Laurent Opyum Pumps",
-    description: "Striking black patent leather pumps with a YSL logo heel.",
+    title: "Dreamy Drops - Collection Piece 26",
+    description: "Striking patent leather piece with logo heel.",
     price: 1250.00,
-    images: ["https://images.unsplash.com/photo-1550246140-5119ae4790b8?q=80&w=800"],
     category: "Shoes",
-    tags: ["ysl", "shoes", "pumps", "black"],
+    tags: ["luxury", "shoes", "black"],
     inStock: true,
   },
   {
-    title: "David Yurman Cable Classics Bracelet",
-    description: "Signature twisted cable bracelet with 14k gold dome accents.",
+    title: "Dreamy Drops - Collection Piece 27",
+    description: "Signature twisted cable bracelet with dome accents.",
     price: 495.00,
-    images: ["https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=800"],
     category: "Jewelry",
-    tags: ["yurman", "bracelet", "silver", "gold"],
+    tags: ["luxury", "bracelet", "silver"],
     inStock: true,
   }
 ];
@@ -263,6 +237,26 @@ async function seedDatabase() {
     console.log("Connecting to MongoDB...");
     await mongoose.connect(MONGODB_URI);
     console.log("Connected to MongoDB");
+
+    // Read local images from public/Products
+    const productsDir = path.join(process.cwd(), 'public', 'Products');
+    let imageFiles: string[] = [];
+    if (fs.existsSync(productsDir)) {
+      imageFiles = fs.readdirSync(productsDir).filter(file => !file.endsWith('.csv') && !file.startsWith('.'));
+    }
+
+    // Map images to products
+    const finalProducts = mockProducts.map((product, index) => {
+      let imagePath = "https://images.unsplash.com/photo-1599643478524-fb66f7ca1a1e?q=80&w=800";
+      if (imageFiles.length > 0) {
+        // Round robin image assignment
+        imagePath = `/Products/${imageFiles[index % imageFiles.length]}`;
+      }
+      return {
+        ...product,
+        images: [imagePath]
+      };
+    });
 
     // Clear existing data
     await User.deleteMany({});
@@ -280,8 +274,8 @@ async function seedDatabase() {
     console.log("Admin user created");
 
     // Insert Products
-    await Product.insertMany(mockProducts);
-    console.log(`Seeded ${mockProducts.length} products successfully!`);
+    await Product.insertMany(finalProducts);
+    console.log(`Seeded ${finalProducts.length} products successfully using local images!`);
 
     process.exit(0);
   } catch (error) {
