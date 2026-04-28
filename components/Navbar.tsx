@@ -75,11 +75,14 @@ export default function Navbar() {
               <Link href="/shop" className="text-sm font-medium text-gray-700 hover:text-black transition-colors">
                 Shop All
               </Link>
-              <Link href="/shop?category=Necklaces" className="text-sm font-medium text-gray-700 hover:text-black transition-colors">
-                Necklaces
+              <Link href="/shop?category=Handbags" className="text-sm font-medium text-gray-700 hover:text-black transition-colors">
+                Handbags
               </Link>
-              <Link href="/shop?category=Earrings" className="text-sm font-medium text-gray-700 hover:text-black transition-colors">
-                Earrings
+              <Link href="/shop?category=Shoes" className="text-sm font-medium text-gray-700 hover:text-black transition-colors">
+                Shoes
+              </Link>
+              <Link href="/shop?category=Watches" className="text-sm font-medium text-gray-700 hover:text-black transition-colors">
+                Watches
               </Link>
               <Link href="/about" className="text-sm font-medium text-gray-700 hover:text-black transition-colors">
                 About
@@ -130,8 +133,9 @@ export default function Navbar() {
           >
             <div className="px-4 pt-2 pb-6 flex flex-col space-y-4">
               <Link href="/shop" className="text-lg font-medium text-gray-900">Shop All</Link>
-              <Link href="/shop?category=Necklaces" className="text-lg font-medium text-gray-900">Necklaces</Link>
-              <Link href="/shop?category=Earrings" className="text-lg font-medium text-gray-900">Earrings</Link>
+              <Link href="/shop?category=Handbags" className="text-lg font-medium text-gray-900">Handbags</Link>
+              <Link href="/shop?category=Shoes" className="text-lg font-medium text-gray-900">Shoes</Link>
+              <Link href="/shop?category=Watches" className="text-lg font-medium text-gray-900">Watches</Link>
               <Link href="/about" className="text-lg font-medium text-gray-900">About</Link>
               <Link href="/admin" className="text-lg font-medium text-gray-900">Account</Link>
             </div>

@@ -9,7 +9,7 @@ export default function Footer() {
               Dreamy Drops
             </h2>
             <p className="text-gray-600 text-sm leading-relaxed mb-6">
-              Handcrafted, minimal, and elegant jewelry for everyday wear. Ethically sourced and carefully curated to elevate your style.
+              Exclusive luxury fashion, designer handbags, shoes, and premium accessories. Carefully curated to elevate your style.
             </p>
             <div className="flex space-x-4">
               <a href="https://instagram.com/dreamy_drops8" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-black transition-colors text-sm font-medium">
@@ -22,9 +22,10 @@ export default function Footer() {
             <h3 className="text-sm font-semibold text-gray-900 tracking-wider uppercase mb-4">Shop</h3>
             <ul className="space-y-3">
               <li><Link href="/shop" className="text-sm text-gray-600 hover:text-black transition-colors">All Products</Link></li>
-              <li><Link href="/shop?category=Necklaces" className="text-sm text-gray-600 hover:text-black transition-colors">Necklaces</Link></li>
-              <li><Link href="/shop?category=Earrings" className="text-sm text-gray-600 hover:text-black transition-colors">Earrings</Link></li>
-              <li><Link href="/shop?category=Rings" className="text-sm text-gray-600 hover:text-black transition-colors">Rings</Link></li>
+              <li><Link href="/shop?category=Handbags" className="text-sm text-gray-600 hover:text-black transition-colors">Handbags</Link></li>
+              <li><Link href="/shop?category=Shoes" className="text-sm text-gray-600 hover:text-black transition-colors">Shoes</Link></li>
+              <li><Link href="/shop?category=Watches" className="text-sm text-gray-600 hover:text-black transition-colors">Watches</Link></li>
+              <li><Link href="/shop?category=Accessories" className="text-sm text-gray-600 hover:text-black transition-colors">Accessories</Link></li>
             </ul>
           </div>
           
@@ -34,7 +35,7 @@ export default function Footer() {
               <li><Link href="/faq" className="text-sm text-gray-600 hover:text-black transition-colors">FAQ</Link></li>
               <li><Link href="/shipping" className="text-sm text-gray-600 hover:text-black transition-colors">Shipping & Returns</Link></li>
               <li><Link href="/contact" className="text-sm text-gray-600 hover:text-black transition-colors">Contact Us</Link></li>
-              <li><Link href="/care" className="text-sm text-gray-600 hover:text-black transition-colors">Jewelry Care</Link></li>
+              <li><Link href="/care" className="text-sm text-gray-600 hover:text-black transition-colors">Product Care</Link></li>
             </ul>
           </div>
 
