@@ -8,8 +8,11 @@ import Footer from "@/components/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Dreamy Drops | Premium Jewelry & Accessories",
-  description: "Handcrafted, minimal, and elegant jewelry for everyday wear.",
+  title: "Dreamy Drops | Luxury Fashion & Accessories",
+  description: "Exclusive luxury fashion, designer handbags, shoes, and premium accessories delivered to you.",
+  icons: {
+    icon: "/logo.png",
+  },
 };
 
 export default function RootLayout({

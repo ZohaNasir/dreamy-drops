@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Instagram } from "lucide-react";
 export default function Footer() {
   return (
     <footer className="bg-[#f8f8f8] pt-16 pb-8 border-t">
@@ -12,8 +13,9 @@ export default function Footer() {
               Exclusive luxury fashion, designer handbags, shoes, and premium accessories. Carefully curated to elevate your style.
             </p>
             <div className="flex space-x-4">
-              <a href="https://instagram.com/dreamy_drops8" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-black transition-colors text-sm font-medium">
-                Instagram
+              <a href="https://instagram.com/dreamy_drops8" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-black transition-colors flex items-center gap-2 text-sm font-medium">
+                <Instagram className="h-5 w-5" />
+                <span className="sr-only">Instagram</span>
               </a>
             </div>
           </div>
