@@ -61,12 +61,9 @@ export default function Navbar() {
             {/* Logo */}
             <div className="flex-1 flex justify-center lg:justify-start">
               <Link href="/" className="flex items-center gap-3">
-                <div className="relative w-10 h-10 overflow-hidden rounded-full border border-gray-100 shadow-sm">
-                  <Image src="/logo.png" alt="Dreamy Drops Logo" fill className="object-cover" />
+                <div className="relative w-48 h-16 overflow-hidden">
+                  <Image src="/logo.png" alt="Dreamy Drops Logo" fill className="object-contain" priority />
                 </div>
-                <span className="text-2xl font-bold tracking-widest uppercase text-gray-900 hidden sm:block">
-                  Dreamy Drops
-                </span>
               </Link>
             </div>
 

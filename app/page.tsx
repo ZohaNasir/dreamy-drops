@@ -86,7 +86,7 @@ export default function Home() {
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
             className="text-lg md:text-xl text-gray-700 max-w-xl font-light mb-10"
           >
-            Elevate your everyday with our collection of minimalist, meticulously crafted jewelry.
+            Elevate your everyday with our curated collection of exclusive luxury fashion, designer handbags, and premium accessories.
           </motion.p>
           <motion.div
             initial={{ y: 20, opacity: 0 }}
@@ -121,21 +121,21 @@ export default function Home() {
             {[
               {
                 id: 1,
-                title: "Celestial Pearl Necklace",
-                price: "$45.99",
-                image: "https://images.unsplash.com/photo-1599643478524-fb66f7ca1a1e?q=80&w=800"
+                title: "Lady Dior Editorial",
+                price: "View Collection",
+                image: "/Products/Models/Model Editorial - Lady Dior Bag/img.png"
               },
               {
                 id: 2,
-                title: "Vintage Gold Signet Ring",
-                price: "$120.00",
-                image: "https://images.unsplash.com/photo-1605100804763-247f67b2548e?q=80&w=800"
+                title: "Rolex Submariner Date",
+                price: "$14,500",
+                image: "/Products/Watches/Rolex Submariner Date/rolex.png"
               },
               {
                 id: 3,
-                title: "Opal Sunburst Earrings",
-                price: "$72.00",
-                image: "https://images.unsplash.com/photo-1535632787350-4e68ef0ac584?q=80&w=800"
+                title: "Gucci Platform Editorial",
+                price: "View Collection",
+                image: "/Products/Models/Model Editorial - Gucci Platform Shoes/img.png"
               }
             ].map((item, i) => (
               <motion.div 
@@ -165,7 +165,7 @@ export default function Home() {
           
           <div className="mt-24 text-center">
              <Link href="/shop" className="px-8 py-4 bg-black text-white text-sm tracking-widest uppercase hover:bg-gray-800 transition-colors">
-               View All Jewelry
+               Explore Full Catalog
              </Link>
           </div>
         </div>
